@@ -1,23 +1,20 @@
-function App() {
+import React from 'react';
+import { Provider } from 'react-redux';
+import store from './redux/store';
+import EventList from './components/EventList';
+import SettingsForm from './components/SettingsForm';
+
+const App: React.FC = () => {
   return (
-    <div
-      style={{
-        width: "100vw",
-        height: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        flexDirection: "column",
-      }}
-    >
-      <h1>See Tickets </h1>
-      <div className="card">
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+    <Provider store={store}>
+      <div>
+        <h1>Events</h1>
+        <EventList />
+        <h2>Settings</h2>
+        <SettingsForm clientId={1} />
       </div>
-    </div>
+    </Provider>
   );
-}
+};
 
 export default App;
